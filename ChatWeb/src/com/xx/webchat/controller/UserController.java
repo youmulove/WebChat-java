@@ -19,12 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-/**
- * NAME   :  WebChat/com.amayadream.webchat.controller
- * Author :  Amayadream
- * Date   :  2016.01.09 17:56
- * TODO   :  用户控制器
- */
+
 @Controller
 //使用SessAttributes动态获取url中的userid值
 @SessionAttributes("userid")

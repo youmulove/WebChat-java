@@ -201,7 +201,7 @@ String basePath = request.getScheme() + "://"
             type : "message"
         }));
     }
-    
+        
     function video(item){
          addChat(item);
          if(ws == null){
@@ -382,7 +382,7 @@ String basePath = request.getScheme() + "://"
     						  title: false,
     						  closeBtn: 0,
     						  shadeClose: true,
-    						  area: ['1200px', '600px'],
+    						  area: ['200px', '200px'],
     						  skin: 'layui-layer-rim', //加上边框
     						  maxmin: true,
     						  scrollbar: false,
@@ -491,6 +491,24 @@ String basePath = request.getScheme() + "://"
         var currentdate = date.getFullYear() + "-" + appendZero(date.getMonth() + 1) + "-" + appendZero(date.getDate()) + " " + appendZero(date.getHours()) + ":" + appendZero(date.getMinutes()) + ":" + appendZero(date.getSeconds());
         return currentdate;
     }
+    
+//     document.onkeydown = function(e){ 
+//         var ev = document.all ? window.event : e;
+//         if(ev.keyCode==13) {
+
+//                $('#enter').sendMessage();//处理事件////错误
+
+//          }
+        
+  	//enter和发送事件关联起来
+    $(function(){
+	document.onkeydown = function(e){ 
+    var ev = document.all ? window.event : e;
+    if(ev.keyCode==13) {
+           sendMessage();//处理事件
+     }
+	}
+	}); 
 </script>
 </body>
 </html>
