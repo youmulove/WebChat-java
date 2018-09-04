@@ -603,7 +603,7 @@ select {
  * http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
  * http://msdn.microsoft.com/en-us/library/ie/hh869615%28v=vs.85%29.aspx
  * http://msdn.microsoft.com/zh-cn/library/ie/hh708740(v=vs.85).aspx
- * @2014.01.20: 璁剧疆涓�笅灞炴�浠ュ悗锛寃indows Phone 8 涓婃樉绀虹殑瀛椾綋杩囧皬锛屾殏鏃舵敞閲婃帀
+ * @2014.01.20: 鐠佸墽鐤嗘稉锟界瑓鐏炵偞锟芥禒銉ユ倵閿涘瘍indows Phone 8 娑撳﹥妯夌粈铏规畱鐎涙ぞ缍嬫潻鍥х毈閿涘本娈忛弮鑸垫暈闁插﹥甯�
  * ========================================================================== */
 /*
 @-ms-viewport {
@@ -3375,7 +3375,7 @@ fieldset[disabled] .am-checkbox-inline {
   margin-right: 5px;
 }
 .am-breadcrumb > li + li:before {
-  content: "禄\00a0";
+  content: "绂刓00a0";
   padding: 0 8px;
   color: #ccc;
 }

@@ -6,7 +6,7 @@
 <head>
     <title>WebChat | 聊天</title>
     <jsp:include page="include/commonfile.jsp"/>
-    <script src="${ctx}/plugins/sockjs/sockjs.js"></script>
+    <script src="${ctx}/static/plugins/sockjs/sockjs.js"></script>
 </head>
 <body>
 <jsp:include page="include/header.jsp"/>
@@ -14,9 +14,9 @@
     <jsp:include page="include/sidebar.jsp"/>
     <!-- content start -->
     <div class="admin-content">
-       <div class="" style="width: 80%;float:left;">
+       <div class="" style="width: 75%;float:left;">
             <!-- 聊天区 -->
-            <div class="am-scrollable-vertical" id="chat-view" style="height: 510px;overflow: hidden">
+            <div class="am-scrollable-vertical" id="chat-view" style="height: 425px">
                 <ul class="am-comments-list am-comments-list-flip" id="chat">
                 </ul>
             </div>
@@ -38,15 +38,15 @@
             </div>
             <!-- 按钮区 -->
             <div class="am-btn-group am-btn-group-xs" style="float:right;">
-                <button class="am-btn am-btn-default" type="button" onclick="getConnection()"><span class="am-icon-plug"></span> 连接</button>
+                <!-- <button class="am-btn am-btn-default" type="button" onclick="getConnection()"><span class="am-icon-plug"></span> 连接</button>
                 <button class="am-btn am-btn-default" type="button" onclick="closeConnection()"><span class="am-icon-remove"></span> 断开</button>
                 <button class="am-btn am-btn-default" type="button" onclick="checkConnection()"><span class="am-icon-bug"></span> 检查</button>
-                <button class="am-btn am-btn-default" type="button" onclick="clearConsole()"><span class="am-icon-trash-o"></span> 清屏</button>
+                <button class="am-btn am-btn-default" type="button" onclick="clearConsole()"><span class="am-icon-trash-o"></span> 清屏</button> -->
                 <button class="am-btn am-btn-default" type="button" onclick="sendMessage()"><span class="am-icon-commenting"></span> 发送</button>
             </div>
         </div>
         <!-- 列表区 -->
-        <div class="am-panel am-panel-default" style="float:right;width: 20%;">
+        <div class="am-panel am-panel-default" style="float:right;width: 25%;">
             <div class="am-panel-hd">
                 <h3 class="am-panel-title">在线列表 [<span id="onlinenum"></span>]</h3>
             </div>
@@ -63,8 +63,18 @@
     <span class="am-icon-btn am-icon-th-list"></span>
 </a>
 <jsp:include page="include/footer.jsp"/>
-
 <script>
+document.onkeydown=function(e){
+if(e.keyCode == 13 && e.ctrlKey){
+                 // 这里实现换行
+document.getElementById("message").value += "\n";
+}else if(e.keyCode == 13){
+// 避免回车键换行
+e.preventDefault();
+// 下面写你的发送消息的代码
+sendMessage();
+}
+}
     $(function () {
         context.init({preventDoubleContext: false});
         context.settings({compress: true});
@@ -313,7 +323,7 @@
         var to = message.to == null || message.to == ""? "全体成员" : $("#send").text();   //获取接收人
         var isSef = '${user.userid}' == message.from.toString().split(",")[0] ? "am-comment-flip" : "";   //如果是自己则显示在右边,他人信息显示在左边
         var html = "<li class=\"am-comment "+isSef+" am-comment-primary\"><a href=\"#link-to-user-home\"><img width=\"48\" height=\"48\" class=\"am-comment-avatar\" alt=\"\" src=\"${ctx}/"+message.from.toString().split(",")[0]+"/head\"></a><div class=\"am-comment-main\">\n" +
-                "<header class=\"am-comment-hd\"><div class=\"am-comment-meta\">   <a class=\"am-comment-author\" href=\"#link-to-user\">"+message.from.toString().split(",")[1]+"</a> 发表于<time> "+message.time+"</time> 发送给: "+to+" </div></header><div class=\"am-comment-bd\"> <p>"+message.content+"</p></div></div></li>";
+                "<header class=\"am-comment-hd\"><div class=\"am-comment-meta\">   <a class=\"am-comment-author\" href=\"#link-to-user\">"+message.from.toString().split(",")[1]+"</a> 发表于<time> "+message.time+"</time> 发送给: "+to+" </div></header><div class=\"am-comment-bd\"> <p>"+message.content.replace(/\n/g,"<br/>");+"</p></div></div></li>";
         $("#chat").append(html);
         $("#message").val("");  //清空输入区
         var chat = $("#chat-view");

@@ -13,6 +13,7 @@
 <title>视频通话</title>
 <meta charset="utf-8" />
 <script src="${ctx}/static/plugins/jquery/jquery-2.1.4.min.js"></script>
+<script src="${ctx}/static/plugins/layer/layer.js"></script>
 <style type="text/css">
 * {
     margin: 0;
@@ -391,6 +392,10 @@ body {
             setNotice("对方已断开！");
 
             pc.close();
+            
+			window.parent.location.reload();
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.layer.close(index);
         }
 
         // 等待远程视频
