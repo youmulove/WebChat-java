@@ -218,7 +218,7 @@ body {
             console.log("打开websocket");
 
             socket = new WebSocket(
-                    "wss://" + window.location.host + "/WebRtcTest/audio/${requestScope.uid}");
+                    "wss://" + window.location.host + "/ChatWeb/audio/${requestScope.uid}");
 //WSS是https
             socket.onopen = onChannelOpened;
             socket.onmessage = onChannelMessage;

@@ -36,7 +36,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             return true;
         }else{
 //            response.sendRedirect("/user/login?timeout=true");
-        	response.sendRedirect("/webchat/user/login");
+        	response.sendRedirect("/ChatWeb/user/login");
             return false;
         }
     }

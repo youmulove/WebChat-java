@@ -221,7 +221,7 @@ body {
         function openChannel() {
             console.log("打开websocket");
             socket = new WebSocket(
-                    "wss://" + window.location.host + "/webchat/video/"+uid);  //WSS是https
+                    "wss://" + window.location.host + "/ChatWeb/video/"+uid);  //WSS是https
             socket.onopen = onChannelOpened;
             socket.onmessage = onChannelMessage;
             socket.onclose = onChannelClosed;
