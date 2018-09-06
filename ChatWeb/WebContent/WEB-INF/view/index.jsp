@@ -232,7 +232,7 @@ String basePath = request.getScheme() + "://"
  		  title: false,
  		  closeBtn:0,
  		  shadeClose: true,
- 		  area: ['800px', '600px'],
+ 		  area: ['1200px', '600px'],
  		  skin: 'layui-layer-rim', //加上边框
  		  maxmin: true,
  		  scrollbar: false,
